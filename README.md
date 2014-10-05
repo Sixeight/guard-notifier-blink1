@@ -71,7 +71,7 @@ Default: `3`
 ```ruby
 notification :blink1,
   method: :glimmer,
-  count: 5
+  count: 5,
   colors: {
     success: "#003200",
     pending: "#323200",
