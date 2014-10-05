@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = GuardNotifierBlink1::VERSION
   spec.authors       = ["Tomohiro Nishimura"]
   spec.email         = ["tomohiro68@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{blink(1) notifier for Guard.}
+  spec.description   = %q{blink(1) notifier for Guard.}
+  spec.homepage      = "https://github.com/Sixeight/guard-notifier-blink1"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
