@@ -1,4 +1,3 @@
-require "guard/notifier/blink1/version"
 
 module Guard
   module Notifier

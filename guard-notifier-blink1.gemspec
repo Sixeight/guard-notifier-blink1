@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'guard/notifier/blink1/version'
+require 'guard-notifier-blink1/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "guard-notifier-blink1"
-  spec.version       = Guard::Notifier::Blink1::VERSION
+  spec.version       = GuardNotifierBlink1::VERSION
   spec.authors       = ["Tomohiro Nishimura"]
   spec.email         = ["tomohiro68@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
