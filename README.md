@@ -37,11 +37,11 @@ notification :blink1
 
 This option is used as flash method of `blink(1)`.
 
-|name|description|
-|--|--|
-|:emission|LED emits until is sent `--off` option.|
-|:blink|use `--blink` option|
-|:glimmer|use `--glimer` option|
+| NAME | DESCRIPTION |
+| :--  | :-- |
+| `:emission` | LED emits until is sent `--off` option |
+| `:blink`    | use `--blink` option                   |
+| `:glimmer`  | use `--glimer` option                  |
 
 Default: `:blink`
 
