@@ -58,6 +58,10 @@ module Guard
         system "blink1-tool", "--rgb=#{color}", "--glimmer=#{count}"
       end
 
+      def off
+        system "blink1-tool", "--off"
+      end
+
       def fetch_config(name, opts, defaults)
         type = opts[:type]
         config  = opts[name]
