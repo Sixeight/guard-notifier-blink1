@@ -4,7 +4,12 @@ module Guard
     class Blink1 < Base
       require "colorable"
 
-      DEFAULT_METHOD = :blink
+      DEFAULT_METHODS = {
+        success: "blink",
+        pending: "blink",
+        failed:  "blink",
+        notify:  "blink",
+      }
       DEFAULT_COLORS = {
         success: "#00ff00",
         pending: "#ffff00",
@@ -21,7 +26,9 @@ module Guard
         super
 
         type = opts[:type]
-        method = opts[:method] || DEFAULT_METHOD
+        methods = opts[:methods] || {}
+        method = opts[:method] || methods[type]
+        method ||= DEFAULT_METHODS[type]
         colors = opts[:colors] || {}
         color = colors[type] || DEFAULT_COLORS[type]
         color = color.to_color.rgb.join(",")
