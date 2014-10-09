@@ -31,24 +31,17 @@ module Guard
       def notify(message, opts = {})
         super
 
-        type = opts[:type]
-        methods = opts[:methods] || {}
-        method = opts[:method] || methods[type]
-        method ||= DEFAULT_METHODS[type]
-        colors = opts[:colors] || {}
-        color = opts[:color] || colors[type]
-        color ||= DEFAULT_COLORS[type]
-        color = color.to_color.rgb.join(",")
-        counts = opts[:counts] || {}
-        count = opts[:count] || counts[type]
-        count ||= DEFAULT_COUNTS[type]
+        method = fetch_config :method, opts, DEFAULT_METHODS
+        color  = fetch_config :color,  opts, DEFAULT_COLORS
+        count  = fetch_config :count,  opts, DEFAULT_COUNTS
 
         execute method, color, count
       end
 
       private
       def execute(method, color, count)
-        __send__ method, color, count
+        rbg_color = color.to_color.rgb.join(", ")
+        __send__ method, rbg_color, count
       rescue
         ::Guard::UI.error 'unrecognized method is set to :method option.'
       end
@@ -63,6 +56,14 @@ module Guard
 
       def glimmer(color, count)
         system "blink1-tool", "--rgb=#{color}", "--glimmer=#{count}"
+      end
+
+      def fetch_config(name, opts, defaults)
+        type = opts[:type]
+        config  = opts[name]
+        config ||= (opts[:"#{name}s"] || {})[type]
+        config ||= defaults[type]
+        config
       end
 
       def self.command?(name)
