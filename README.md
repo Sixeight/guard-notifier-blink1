@@ -33,17 +33,31 @@ notification :blink1
 
 ## Options
 
-### :method
+### :methods
 
 This option is used as flash method of `blink(1)`.
+You can set color of result types individually.
 
 | NAME | DESCRIPTION |
 | :--  | :-- |
 | `:emission` | LED emits until is sent `--off` option |
 | `:blink`    | use `--blink` option                   |
 | `:glimmer`  | use `--glimer` option                  |
+| `:off`      | use `--off` option                     |
 
-Default: `:blink`
+Default:
+```ruby
+{
+  success: "blink",
+  pending: "blink",
+  failed:  "blink",
+  notify:  "blink",
+}
+```
+
+### :method
+
+Set method for all result type.
 
 ### :colors
 
@@ -60,11 +74,28 @@ Default:
 }
 ```
 
-### :count
+### :color
+
+Set color for all result type.
+
+### :counts
 
 This option is used as the number of flashes when the `:method` is set to `blink` or `glimmer`.
+You can set color of result types individually.
 
-Default: `3`
+Default:
+```ruby
+{
+  success: 3,
+  pending: 3,
+  failed:  3,
+  notify:  3,
+}
+```
+
+### :count
+
+Set count for all result type.
 
 ## Sample
 
