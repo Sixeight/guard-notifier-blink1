@@ -16,7 +16,13 @@ module Guard
         failed:  "#ff0000",
         notify:  "#0000ff",
       }.freeze
-      DEFAULT_COUNT = 3
+      DEFAULT_COUNTS = {
+        success: 3,
+        pending: 3,
+        failed:  3,
+        notify:  3,
+      }.freeze
+
 
       def self.available?(opts = {})
         super && command?("blink1-tool")
@@ -33,7 +39,9 @@ module Guard
         color = opts[:color] || colors[type]
         color ||= DEFAULT_COLORS[type]
         color = color.to_color.rgb.join(",")
-        count = opts[:count] || DEFAULT_COUNT
+        counts = opts[:counts] || {}
+        count = opts[:count] || counts[type]
+        count ||= DEFAULT_COUNTS[type]
 
         execute method, color, count
       end
