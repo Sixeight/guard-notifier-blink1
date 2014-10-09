@@ -30,7 +30,8 @@ module Guard
         method = opts[:method] || methods[type]
         method ||= DEFAULT_METHODS[type]
         colors = opts[:colors] || {}
-        color = colors[type] || DEFAULT_COLORS[type]
+        color = opts[:color] || colors[type]
+        color ||= DEFAULT_COLORS[type]
         color = color.to_color.rgb.join(",")
         count = opts[:count] || DEFAULT_COUNT
 
