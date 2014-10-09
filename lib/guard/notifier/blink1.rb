@@ -9,7 +9,7 @@ module Guard
         pending: "blink",
         failed:  "blink",
         notify:  "blink",
-      }
+      }.freeze
 
       DEFAULT_COLORS = {
         success: "#00ff00",
@@ -17,7 +17,7 @@ module Guard
         failed:  "#ff0000",
         notify:  "#0000ff",
       }.freeze
-      
+
       DEFAULT_COUNTS = {
         success: 3,
         pending: 3,
