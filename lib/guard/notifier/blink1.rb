@@ -43,8 +43,10 @@ module Guard
       def execute(method, color, count)
         rbg_color = color.to_color.rgb.join(", ")
         __send__ method, rbg_color, count
-      rescue
+      rescue NoMethodError
         ::Guard::UI.error 'unrecognized method is set to :method option.'
+      rescue
+        ::Guard::UI.error 'unexpected error occured.'
       end
 
       def emission(color, count)
