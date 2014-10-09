@@ -10,19 +10,20 @@ module Guard
         failed:  "blink",
         notify:  "blink",
       }
+
       DEFAULT_COLORS = {
         success: "#00ff00",
         pending: "#ffff00",
         failed:  "#ff0000",
         notify:  "#0000ff",
       }.freeze
+      
       DEFAULT_COUNTS = {
         success: 3,
         pending: 3,
         failed:  3,
         notify:  3,
       }.freeze
-
 
       def self.available?(opts = {})
         super && command?("blink1-tool")
