@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+* Fix bug about new version of Guard - [@Sixeight]
+
 ## 0.2.1
 
 * Change Guard's version dependency - [@Sixeight]
