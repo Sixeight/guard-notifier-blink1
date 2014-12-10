@@ -78,7 +78,7 @@ module Guard
       end
     end
 
-    NOTIFIERS << {blink1: Blink1}
+    SUPPORTED << {blink1: Blink1}
   end
 end
 
